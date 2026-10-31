@@ -1,0 +1,320 @@
+/* ==========================================================================
+   styles.css  —  Screen + Print styles for the Prescription App
+   ========================================================================== */
+
+:root {
+  --primary: #1565c0;
+  --primary-dark: #0d47a1;
+  --success: #2e7d32;
+  --danger: #c62828;
+  --bg: #f4f6f9;
+  --card: #ffffff;
+  --border: #d7dde5;
+  --text: #1f2a37;
+  --muted: #6b7280;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ---------- Header ---------- */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: var(--primary);
+  color: #fff;
+}
+.brand-name { font-size: 18px; font-weight: 700; }
+.brand-sub { font-size: 13px; opacity: 0.9; }
+.brand-tag { font-size: 13px; opacity: 0.9; }
+
+.container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+
+/* ---------- Toolbar ---------- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.toolbar h2 { margin: 0; font-size: 18px; flex: 0 0 auto; }
+.toolbar #new-btn { margin-left: auto; }
+#back-btn { margin-right: 4px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  background: #e9eef5;
+  color: var(--text);
+}
+.btn:hover { filter: brightness(0.97); }
+.btn-sm { padding: 4px 10px; font-size: 13px; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-success { background: var(--success); color: #fff; }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-ghost { background: transparent; border-color: var(--border); }
+
+/* ---------- Filters ---------- */
+.filters { display: flex; gap: 10px; margin-bottom: 14px; }
+.filters input { flex: 1; }
+
+input[type="text"], textarea, select {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+}
+textarea { resize: vertical; }
+select { max-width: 220px; }
+
+/* ---------- Records table ---------- */
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.records-table th, .records-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.records-table th { background: #eef2f7; font-weight: 600; }
+.records-table tr:last-child td { border-bottom: none; }
+.empty-msg { color: var(--muted); text-align: center; padding: 24px; }
+
+/* ---------- Form ---------- */
+.form-grid {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+}
+.field { margin-bottom: 16px; }
+.field label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+.req { color: var(--danger); }
+.hint { color: var(--muted); font-size: 12px; }
+
+/* ---------- Name + Age row ---------- */
+.name-age-row { display: flex; gap: 12px; align-items: flex-end; }
+.name-age-row .name-col { flex: 1 1 auto; }
+.name-age-row .age-col { flex: 0 0 120px; }
+
+.visit2 {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 14px 16px 2px;
+  margin-top: 6px;
+}
+.visit2 legend { font-weight: 700; color: var(--primary-dark); padding: 0 6px; }
+
+/* ---------- Dosage rows ---------- */
+.dosage-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eef1f5;
+}
+.dosage-row:last-child { border-bottom: none; }
+.dosage-med { flex: 1; font-size: 14px; }
+.dosage-select { max-width: 180px; }
+
+.inline-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.advice-templates {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.btn-chip {
+  background: #eef3fb;
+  border-color: var(--border);
+  color: var(--primary);
+  border-radius: 999px;
+}
+.btn-chip:hover { background: #e2eafa; }
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+.autosave-note { color: var(--muted); font-size: 13px; margin-left: auto; }
+
+/* ---------- Badges ---------- */
+.badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: auto;
+}
+.badge-wait { background: #fff3cd; color: #8a6d00; }
+.badge-done { background: #d7f0db; color: var(--success); }
+
+/* ==========================================================================
+   Multi-select component
+   ========================================================================== */
+.ms { position: relative; }
+.ms-control {
+  min-height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  padding: 4px 28px 4px 6px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+  position: relative;
+}
+.ms-control.ms-active { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(21,101,192,0.15); }
+.ms-tags { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; }
+.ms-placeholder { color: var(--muted); font-size: 14px; padding: 4px; }
+.ms-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #e3edfb;
+  color: var(--primary-dark);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 13px;
+}
+.ms-tag-x {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--primary-dark);
+}
+.ms-arrow { position: absolute; right: 10px; color: var(--muted); pointer-events: none; }
+
+.ms-panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  z-index: 20;
+  padding: 6px;
+}
+.ms-search { margin-bottom: 6px; }
+.ms-options { max-height: 220px; overflow-y: auto; }
+.ms-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.ms-option:hover { background: #f0f4fa; }
+.ms-empty { padding: 10px; color: var(--muted); font-size: 13px; text-align: center; }
+
+/* ==========================================================================
+   Print visibility helpers
+   ========================================================================== */
+.print-only { display: none; }
+
+@media screen {
+  #print-sheet { display: none; }
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+@media print {
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  .app-header { display: none !important; }
+  /* The app UI container is not printed; hide it so its margins don't
+     offset the print sheet and spill it onto a second (blank) page. */
+  main.container { display: none !important; }
+
+  .print-only { display: block; }
+  #print-sheet {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 210mm;
+    height: 296mm;
+    overflow: hidden;
+    padding: 12mm 14mm;
+  }
+
+  /* margin:0 suppresses the browser's auto header (title) and footer
+     (file URL + page number). Our own padding above keeps content inset. */
+  @page { size: A4; margin: 0; }
+
+  .print-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .ph-col { font-size: 14px; line-height: 1.35; font-weight: 700; }
+  .ph-left { flex: 1 1 38%; text-align: left; }
+  .ph-center { flex: 1 1 24%; text-align: center; }
+  .ph-right { flex: 1 1 38%; text-align: right; }
+
+  .ph-left .ph-name { font-size: 18px; font-weight: 700; white-space: nowrap; }
+  .ph-left .ph-qual { font-size: 14px; text-align: left; font-style: italic; }
+  .ph-left .ph-desig { font-size: 14px; margin-top: 2px; }
+  .ph-left .ph-reg { font-weight: 700; }
+
+  .ph-center .ph-center-title { font-weight: 700; margin-bottom: 2px; }
+  .ph-appt {
+    display: inline-flex;
+    gap: 4px;
+    text-align: left;
+  }
+  .ph-appt-label { white-space: nowrap; }
+  .ph-appt-nums { text-align: left; }
+
+  .ph-right .ph-rhead { font-weight: 700; font-size: 16px; }
+
+  .print-rule { border: none; border-top: 2px solid #000; margin: 8px 0 14px; }
+
+  #print-body { font-size: 14px; flex: 1 1 auto; overflow: hidden; }
+  .pr-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .pr-row { margin-bottom: 8px; }
+  .pr-label { font-weight: 700; font-size: 13px; text-transform: uppercase; color: #222; }
+  .pr-value { margin-top: 2px; white-space: pre-wrap; }
+}

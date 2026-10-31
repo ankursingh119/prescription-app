@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescription App</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== SCREEN HEADER ===================== -->
+  <header class="app-header no-print">
+    <div>
+      <div class="brand-name" id="brand-doctor">Doctor</div>
+      <div class="brand-sub" id="brand-clinic">Clinic</div>
+    </div>
+    <div class="brand-tag">Prescription Manager</div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===================== WORKLIST VIEW ===================== -->
+    <section id="worklist-view" class="no-print">
+      <div class="toolbar">
+        <h2>Patient Worklist</h2>
+        <button id="new-btn" class="btn btn-primary">+ New Prescription</button>
+      </div>
+
+      <div class="filters">
+        <input type="text" id="search-input" placeholder="Search by patient name..." />
+        <select id="filter-status">
+          <option value="all">All</option>
+          <option value="awaiting_report">Awaiting Report</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
+
+      <table class="records-table">
+        <thead>
+          <tr>
+            <th>Patient</th>
+            <th>Status</th>
+            <th>Investigations</th>
+            <th>Last Updated</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="records-body"></tbody>
+      </table>
+      <p id="empty-msg" class="empty-msg" hidden>No records yet. Click “New Prescription” to begin.</p>
+    </section>
+
+    <!-- ===================== FORM VIEW ===================== -->
+    <section id="form-view" class="no-print" hidden>
+      <div class="toolbar">
+        <button id="back-btn" class="btn btn-ghost">← Back to Worklist</button>
+        <h2 id="form-title">New Prescription</h2>
+        <span id="status-badge" class="badge badge-wait">Awaiting Report</span>
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <div class="name-age-row">
+            <div class="name-col">
+              <label for="patient-name">Patient Name <span class="req">*</span></label>
+              <input type="text" id="patient-name" placeholder="Full name" />
+            </div>
+            <div class="age-col">
+              <label for="patient-age">Age</label>
+              <input type="text" id="patient-age" placeholder="Age" />
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="complaint">Complaint</label>
+          <textarea id="complaint" rows="3" placeholder="Presenting complaint..."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="prev-medication">Previous Medication</label>
+          <textarea id="prev-medication" rows="3" placeholder="Any medication the patient has been taking before..."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="oe">O.E. (On Examination)</label>
+          <textarea id="oe" rows="6" placeholder="On examination findings..."></textarea>
+        </div>
+
+        <div class="field">
+          <label>Investigation</label>
+          <div id="investigations"></div>
+        </div>
+
+        <fieldset class="visit2">
+          <legend>After Report (Visit 2)</legend>
+
+          <div class="field">
+            <label for="investigation-report">Investigation Report</label>
+            <textarea id="investigation-report" rows="4" placeholder="Findings from the investigation report..."></textarea>
+          </div>
+
+          <div class="field">
+            <label>Prescribed Medicine — Category</label>
+            <div id="categories"></div>
+          </div>
+
+          <div class="field">
+            <label>Prescribed Medicine — Subcategory</label>
+            <div id="subcategories"></div>
+            <small class="hint">Options depend on the categories selected above.</small>
+          </div>
+
+          <div class="field" id="dosage-field" hidden>
+            <label>Dosage per Medicine</label>
+            <div id="dosage-rows"></div>
+          </div>
+
+          <div class="field">
+            <label>Exercises</label>
+            <div id="exercises"></div>
+          </div>
+
+          <div class="field">
+            <label for="conclusion">Advice</label>
+            <textarea id="conclusion" rows="4" placeholder="Advice on the report..."></textarea>
+            <div class="inline-actions">
+              <button type="button" id="insert-rx-btn" class="btn btn-sm btn-ghost">⤵ Insert medicines &amp; dosage</button>
+              <small class="hint">Adds the selected medicines with dosage into the box above. You can edit them afterwards.</small>
+            </div>
+            <div class="advice-templates" id="advice-templates"></div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="form-actions">
+        <button id="save-btn" class="btn btn-primary">Save</button>
+        <button id="save-print-btn" class="btn btn-success">Save &amp; Print</button>
+        <button id="delete-btn" class="btn btn-danger" hidden>Delete</button>
+        <span id="autosave-note" class="autosave-note"></span>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== PRINT TEMPLATE ===================== -->
+  <!-- Hidden on screen, shown only when printing -->
+  <div id="print-sheet" class="print-only">
+    <header class="print-header">
+      <div class="ph-col ph-left" id="ph-left"></div>
+      <div class="ph-col ph-center" id="ph-center"></div>
+      <div class="ph-col ph-right" id="ph-right"></div>
+    </header>
+    <hr class="print-rule" />
+
+    <main id="print-body"></main>
+  </div>
+
+  <!-- Scripts (order matters) -->
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/multiselect.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
