@@ -162,9 +162,18 @@ select { max-width: 220px; }
 
 .form-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   margin-top: 16px;
+  position: sticky;
+  bottom: 0;
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 5;
 }
 .autosave-note { color: var(--muted); font-size: 13px; margin-left: auto; }
 
