@@ -471,7 +471,7 @@
       </div>
       ${row("Complaint", r.complaint)}
       ${row("Previous Medication", r.prevMedication)}
-      ${row("O.E. (On Examination)", r.oe)}
+      ${row("O.E.", r.oe)}
       ${row("Investigations Advised", r.investigations)}
       ${row("Investigation Report", r.investigationReport)}
       ${row("Exercises", r.exercises)}
