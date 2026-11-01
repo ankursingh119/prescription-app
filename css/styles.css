@@ -79,7 +79,7 @@ input[type="text"], textarea, select {
   font-family: inherit;
   background: #fff;
 }
-textarea { resize: vertical; }
+textarea { resize: vertical; line-height: 1.5; }
 select { max-width: 220px; }
 
 /* ---------- Records table ---------- */
@@ -325,5 +325,5 @@ select { max-width: 220px; }
   }
   .pr-row { margin-bottom: 8px; }
   .pr-label { font-weight: 700; font-size: 13px; text-transform: uppercase; color: #222; }
-  .pr-value { margin-top: 2px; white-space: pre-wrap; }
+  .pr-value { margin-top: 2px; white-space: pre-wrap; line-height: 1.6; }
 }
