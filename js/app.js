@@ -23,6 +23,7 @@
 
   const patientNameEl = document.getElementById("patient-name");
   const patientAgeEl = document.getElementById("patient-age");
+  const patientAddressEl = document.getElementById("patient-address");
   const complaintEl = document.getElementById("complaint");
   const prevMedicationEl = document.getElementById("prev-medication");
   const oeEl = document.getElementById("oe");
@@ -249,7 +250,7 @@
     deleteBtn.addEventListener("click", onDelete);
     insertRxBtn.addEventListener("click", insertRxIntoConclusion);
 
-    [patientNameEl, patientAgeEl, complaintEl, prevMedicationEl, oeEl, investigationReportEl, conclusionEl].forEach((el) =>
+    [patientNameEl, patientAgeEl, patientAddressEl, complaintEl, prevMedicationEl, oeEl, investigationReportEl, conclusionEl].forEach((el) =>
       el.addEventListener("input", scheduleAutosave)
     );
   }
@@ -338,6 +339,7 @@
     // Populate fields
     patientNameEl.value = currentRecord.patientName || "";
     patientAgeEl.value = currentRecord.age || "";
+    patientAddressEl.value = currentRecord.address || "";
     complaintEl.value = currentRecord.complaint || "";
     prevMedicationEl.value = currentRecord.prevMedication || "";
     oeEl.value = currentRecord.oe || "";
@@ -371,6 +373,7 @@
   function collectForm() {
     currentRecord.patientName = patientNameEl.value.trim();
     currentRecord.age = patientAgeEl.value.trim();
+    currentRecord.address = patientAddressEl.value.trim();
     currentRecord.complaint = complaintEl.value.trim();
     currentRecord.prevMedication = prevMedicationEl.value.trim();
     currentRecord.oe = oeEl.value.trim();
@@ -477,6 +480,7 @@
         }</span>
         <span><strong>Date:</strong> ${formatDate(Date.now())}</span>
       </div>
+      ${row("Address", r.address)}
       ${row("Complaint", r.complaint)}
       ${row("Previous Medication", r.prevMedication)}
       ${row("O.E.", r.oe)}
@@ -496,6 +500,7 @@
       updatedAt: Date.now(),
       patientName: "",
       age: "",
+      address: "",
       complaint: "",
       prevMedication: "",
       oe: OE_TEMPLATE,

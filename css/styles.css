@@ -114,10 +114,11 @@ select { max-width: 220px; }
 .req { color: var(--danger); }
 .hint { color: var(--muted); font-size: 12px; }
 
-/* ---------- Name + Age row ---------- */
+/* ---------- Name + Age + Address row ---------- */
 .name-age-row { display: flex; gap: 12px; align-items: flex-end; }
 .name-age-row .name-col { flex: 1 1 auto; }
-.name-age-row .age-col { flex: 0 0 120px; }
+.name-age-row .age-col { flex: 0 0 100px; }
+.name-age-row .address-col { flex: 1 1 auto; }
 
 .visit2 {
   border: 1px dashed var(--border);
