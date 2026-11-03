@@ -80,6 +80,7 @@ input[type="text"], textarea, select {
   background: #fff;
 }
 textarea { resize: vertical; line-height: 1.5; }
+#conclusion { font-weight: bold; }
 select { max-width: 220px; }
 
 /* ---------- Records table ---------- */

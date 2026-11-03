@@ -462,6 +462,14 @@
              }</div></div>`
         : "";
 
+    const boldRow = (label, value) =>
+      value && (Array.isArray(value) ? value.length : value)
+        ? `<div class="pr-row"><div class="pr-label">${label}</div>
+             <div class="pr-value"><strong>${
+               Array.isArray(value) ? escapeHtml(value.join(", ")) : escapeHtml(value)
+             }</strong></div></div>`
+        : "";
+
     return `
       <div class="pr-meta">
         <span><strong>Patient:</strong> ${escapeHtml(r.patientName || "")}${
@@ -475,7 +483,7 @@
       ${row("Investigations Advised", r.investigations)}
       ${row("Investigation Report", r.investigationReport)}
       ${row("Exercises", r.exercises)}
-      ${row("Advice", r.conclusion)}
+      ${boldRow("Advice", r.conclusion)}
     `;
   }
 
