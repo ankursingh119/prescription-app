@@ -75,6 +75,7 @@ const CONFIG = {
    * -------------------------------------------------------------------- */
   investigations: [
     "25 OH (D3)",
+    "AFB in sputum",
     "AFP",
     "Alkaline Phosphatase",
     "Anti CCP",
@@ -83,6 +84,7 @@ const CONFIG = {
     "AntiHBc IgG",
     "AntiHBc IgM",
     "Anti TPO",
+    "ASO Titre",
     "Blood Group",
     "Blood Sugar 2 Hr after Breakfast",
     "Blood Sugar 2 Hr after Meal & Drug",
@@ -128,7 +130,9 @@ const CONFIG = {
     "MP",
     "MRI Brain",
     "MRI Cervical Spines",
+    "MRI Cervicodorsal Spines",
     "MRI Dorsal Spines",
+    "MRI Knee",
     "NS1",
     "PSA",
     "Rheumatoid Factor",
@@ -144,6 +148,7 @@ const CONFIG = {
     "Serum Testosterone",
     "Serum Uric Acid",
     "SGPT, SGOT",
+    "TB Gold",
     "TMT",
     "Total Protein A:G",
     "Upper GI Endoscopy",
@@ -247,6 +252,7 @@ const CONFIG = {
     Antidepressants: [
       "Anxito 10 mg tab",
       "Anxito 25 mg tab",
+      "Melocet 10 mg tab",
       "Seicalm 10 mg tab",
       "Tryptomer 10 mg tab",
       "Zolax 0.5 mg tab",
@@ -417,7 +423,7 @@ const CONFIG = {
     ],
     CoughSyrup: [
       "Ambrodil S Syrup 2 tsf",
-      "Kodites 2 tsf",
+      "Kodites Syrup 2 tsf",
     ],
     Dermal: [
       "Atrax lotion",
@@ -515,9 +521,11 @@ const CONFIG = {
       "Evion 400 mg",
     ],
     Vitamins: [
+      "Aquaviron amp im",
       "Benadon 40 mg tab",
       "Berin inj amp im",
       "Cromoplex forte",
+      "Meganeuron Forte amp inj",
       "Retinol ointment",
       "Riboflavin tab",
       "Thiamin tab 100 mg",
