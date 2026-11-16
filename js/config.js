@@ -37,7 +37,7 @@ const CONFIG = {
         "Deptt. of Medicine",
         "Patna Medical College & Hospital",
         "Reg. No. 9751 (Bihar)",
-        "Google Maps Location : Dr. L.N. Sinha Clinic",
+        "Google Location : Dr. L.N. Sinha Clinic",
       ],
     },
 
